@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\HomeComponent;
+use App\Http\Livewire\Utilisateur\ProfileComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,16 +21,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',HomeComponent::class);
 
-Route::get('/dashboard', function () {
-    return view('livewire.home-component');
-})->middleware(['auth'])->name('dashboard');
+// Route::get('/', function () {
+//     return view('livewire.home-component');
+// })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+// require __DIR__.'/auth.php';
 
 
-// Route::middleware(['auth:sanctum','verified'])->group(function(){
-
-// });
+Route::middleware(['auth:sanctum','verified'])->group(function(){
+    Route::get('/profil/utilisateur', ProfileComponent::class)->name('user.profil');
+});
 
 // //pour admin
 // Route::middleware(['auth:sanctum','verified'])->group(function(){

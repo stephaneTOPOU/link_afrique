@@ -23,7 +23,7 @@
                   <div class="dropdown">
                     <button class="dropbtn">Mon Compte({{ Auth::user()->nom }}) </button>
                     <div class="dropdown-content">
-                      <a href="#">Profile</a>
+                      <a href="{{ route('user.profil') }}">Profile</a>
                       <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Déconnexion</a> 
                       <form id="logout-form" action="{{ route('logout') }}" method="POST">
                         @csrf                        
